@@ -6,7 +6,7 @@ import org.openqa.selenium.support.How;
 
 public class HomePage {
 
-    @FindBy(how = How.XPATH, using = "//div[@class='sch']/div[@class='autocomplete']/input[@class='a autocomplete-field']")
+    @FindBy(how = How.XPATH, using = "//div[@class='sch']/input[@placeholder='Where do you want to go?']")
     private WebElement whereToInputPlaceHolder;
 
     /*@FindBy(how = How.CLASS_NAME, using = "autocomplete-field")
