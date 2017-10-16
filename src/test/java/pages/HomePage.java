@@ -6,10 +6,8 @@ import org.openqa.selenium.support.How;
 
 public class HomePage {
 
-    //html/body/main/div[1]/div[2]/div[2]/input
-    //div[@class='sch']/div[@class='autocomplete']/input[@class='a autocomplete-field']"
-    /*@FindBy(how = How.XPATH, using = "//div[@class='sch']/div[@class='autocomplete']/input[@class='a autocomplete-field']")
-    private WebElement whereToInput;*/
+    @FindBy(how = How.XPATH, using = "//div[@class='sch']/div[@class='autocomplete']/input[@class='a autocomplete-field']")
+    private WebElement whereToInputPlaceHolder;
 
     /*@FindBy(how = How.CLASS_NAME, using = "autocomplete-field")
     private WebElement whereToInput;*/
@@ -17,11 +15,12 @@ public class HomePage {
     @FindBy(how = How.CSS, using = "input.autocomplete-field")
     private WebElement whereToInput;
 
-    @FindBy(how = How.XPATH, using="//*[@id='lst-ib']")
-    private WebElement googleInput;
+    public WebElement getWhereToInputPlaceHolder() {
+        return whereToInputPlaceHolder;
+    }
 
-    public WebElement getGoogleInput() {
-        return googleInput;
+    public void setWhereToInputPlaceHolder(WebElement whereToInputPlaceHolder) {
+        this.whereToInputPlaceHolder = whereToInputPlaceHolder;
     }
 
     public WebElement getWhereToInput() {

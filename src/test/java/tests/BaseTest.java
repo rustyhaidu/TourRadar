@@ -18,16 +18,16 @@ public class BaseTest {
 
     @BeforeMethod
     public void driver() throws InterruptedException {
-        System.setProperty("webdriver.gecko.driver", "src/test/resources/drivers/geckodriver.exe");
-        //System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
+        //System.setProperty("webdriver.gecko.driver", "src/test/resources/drivers/geckodriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
 
-        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        /*FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.addArguments("start-maximized");
-        driver = new FirefoxDriver(firefoxOptions);
+        driver = new FirefoxDriver(firefoxOptions);*/
 
-       /* ChromeOptions chromeOptions = new ChromeOptions();
+        ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("start-maximized");
-        driver = new ChromeDriver(chromeOptions);*/
+        driver = new ChromeDriver(chromeOptions);
 
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.get("http://www.tourradar.com/");

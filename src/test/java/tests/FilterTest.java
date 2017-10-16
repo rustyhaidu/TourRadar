@@ -25,11 +25,21 @@ public class FilterTest extends BaseTest {
     @Test
     public void tourMonthAndCountry() throws Exception {
 
-        WebElement input = driver.findElement(By.cssSelector("body"));
+        /*//WebElement input = driver.findElement(By.cssSelector("body"));
+        WebElement input = homePage.getWhereToInputPlaceHolder();
         // input.clear();
+        input.sendKeys("Romania");*/
+        WebElement input = driver.findElement(By.xpath("//div[@class='sch']/input[@placeholder='Where do you want to go?']"));
+
         input.sendKeys("Romania");
         Thread.sleep(1000);
         String enteredText = input.getText();
+
+        boolean isCountryContained = false;
+        if (enteredText.contains("Romania")){
+            isCountryContained = true;
+        }
+       Assert.assertTrue(isCountryContained);
 
         input.sendKeys(Keys.BACK_SPACE);
         Thread.sleep(1000);
