@@ -1,11 +1,7 @@
 package tests;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -23,15 +19,16 @@ public class FilterTest extends BaseTest {
     }
 
     @Test
-    public void tourMonthAndCountry() throws Exception {
+    public void tourMonthAndCountryTest() throws Exception {
 
-        WebElement input = homePage.getWhereToInputPlaceHolder();
+        WebElement input = homePage.getWhereToInputAnchor();
+        //WebElement input = homePage.getWhereToInputCSS();
         input.clear();
         input.sendKeys("Romania");
-        // WebElement input = driver.findElement(By.xpath("//div[@class='sch']/input[@placeholder='Where do you want to go?']"));
 
         Thread.sleep(1000);
-        String enteredText = input.getText();
+        String enteredText = input.getAttribute("value");
+        System.out.println(enteredText);
 
         boolean isCountryContained = false;
         if (enteredText.contains("Romania")){
@@ -45,7 +42,7 @@ public class FilterTest extends BaseTest {
         String firstElementText = listDropDown.get(0).getText();
 
         boolean firstElementContainsCountry = false;
-        if (firstElementText.contains("Romania")){
+        if (firstElementText.contains("Romania")) {
             firstElementContainsCountry = true;
         }
         System.out.println(firstElementText);
